@@ -9,6 +9,8 @@ class Queue:
         """
         Очередь с помощью python list
         TODO Описать где начало и конец очереди
+        Начало очереди:  list[0]
+        Конец очереди;   list[-1]
         """
         self.list_ = []  # TODO инициализировать список
 
@@ -18,7 +20,7 @@ class Queue:
 
         :param elem: Элемент, который должен быть добавлен
         """
-        self.list_.append(elem)# TODO реализовать метод enqueue
+        self.list_.append(elem)  # TODO реализовать метод enqueue
 
     def dequeue(self) -> Any:
         """
@@ -35,7 +37,7 @@ class Queue:
                   , err)
             raise
         else:
-            return elem# TODO реализовать метод dequeue
+            return elem  # TODO реализовать метод dequeue
 
     def peek(self, ind: int = 0) -> Any:
         """
@@ -57,7 +59,7 @@ class Queue:
             print("Индекс вне граиц очереди: ", err)
             raise
         else:
-            return elem# TODO реализовать метод peek
+            return elem  # TODO реализовать метод peek
 
     def clear(self) -> None:
         """ Очистка очереди. """
