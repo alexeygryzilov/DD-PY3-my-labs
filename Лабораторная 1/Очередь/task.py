@@ -33,8 +33,7 @@ class Queue:
         try:
             elem = self.list_.pop(0)
         except IndexError as err:
-            print("Очередь пуста:"
-                  , err)
+            print("Очередь пуста:", err)
             raise
         else:
             return elem  # TODO реализовать метод dequeue
@@ -70,12 +69,13 @@ class Queue:
         """ Количество элементов в очереди. """
         return (len(self.list_))  # TODO реализовать метод __len__
 
+
 if __name__ == '__main__':
     a = Queue()
     a.enqueue(1)
     a.enqueue(2)
     print(a.__len__())
-    #print(a.peek('alfa'))
+    # print(a.peek('alfa'))
     a.clear()
 
     print(a.list_)
