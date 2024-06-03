@@ -30,6 +30,25 @@ class PriorityQueue:
         self.counters[priority] += 1
         ...  # TODO реализовать метод enqueue
 
+    def dequeue(self) -> Any:
+        """
+        Извлечение элемента из начала очереди.
+
+        :raise: IndexError - Ошибка, если очередь пуста
+
+        :return: Извлеченный с начала очереди элемент.
+        """
+        idx = 0
+        deque_ = []
+        for number in self.counters:
+            if number != 0:
+                deque_.append(self.list_[idx])
+                idx += number
+        return deque_
+
+
+        raise IndexError("Извлечение из пустой очереди")
+
     def peek(self, ind: int = 0, priority: int = 0) -> Any:
         """
         Просмотр произвольного элемента, находящегося в очереди, без его извлечения.
@@ -68,13 +87,15 @@ if __name__ == '__main__':
     myqueue.enqueue(1, 0)
     myqueue.enqueue(2, 0)
     myqueue.enqueue(4, 1)
+    myqueue.enqueue(7,3)
     myqueue.enqueue(3, 2)
     myqueue.enqueue(8, 2)
     myqueue.enqueue(15, 1)
-    print(myqueue.list_)  # [1, 2, 4, 15, 3, 8]
+    print(myqueue.list_)  # [1, 2, 4, 15, 3, 8, 7]
+    print(myqueue.dequeue()) # [1, 4, 3, 7]
     print(myqueue.peek(1, 0))  # 2
     print(myqueue.peek(1, 2))  # 8
-    print(myqueue.list_)  # [1, 2, 4, 15, 3, 8]
-    print(myqueue.__len__())  # 6
+    print(myqueue.list_)  # [1, 2, 4, 15, 3, 8, 7]
+    print(myqueue.__len__())  # 7
     myqueue.clear()
     print(myqueue.list_)  # []
