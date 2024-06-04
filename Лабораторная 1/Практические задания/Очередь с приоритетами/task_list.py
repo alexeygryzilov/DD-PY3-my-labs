@@ -87,7 +87,7 @@ if __name__ == '__main__':
     myqueue.enqueue(1, 0)
     myqueue.enqueue(2, 0)
     myqueue.enqueue(4, 1)
-    myqueue.enqueue(7,3)
+    myqueue.enqueue(7,4)
     myqueue.enqueue(3, 2)
     myqueue.enqueue(8, 2)
     myqueue.enqueue(15, 1)
