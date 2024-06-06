@@ -1,3 +1,6 @@
+import functools
+
+@functools.lru_cache()
 def fib_recursive(n: int) -> int:
     """
     Вычислить n-е число последовательности Фибоначчи, используя рекурсивный алгоритм.
@@ -12,3 +15,5 @@ def fib_recursive(n: int) -> int:
     if n == 1:
         return 1
     return fib_recursive(n - 2) + fib_recursive(n - 1)
+
+print(fib_recursive(10))

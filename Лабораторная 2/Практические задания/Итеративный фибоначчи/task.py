@@ -13,7 +13,7 @@ def fib_iterative(n: int) -> int:
         return fib_1
     if n == 1:
         return fib_2
-    for i in range(2,n + 1):
+    for i in range(2, n + 1):
         result = fib_2 + fib_1
         fib_1 = fib_2
         fib_2 = result
