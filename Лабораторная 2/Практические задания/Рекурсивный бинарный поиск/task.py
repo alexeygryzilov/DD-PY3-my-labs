@@ -16,30 +16,27 @@ def binary_search(
     :return: Индекс элемента в массиве
     """
 
-    def one_search(value, seq,l_border =0, r_border = len(seq)):
+    def one_search(value, seq, l_border=0, r_border=len(seq)):
         print('---')
 
         middle = (r_border + l_border) // 2
-        print(l_border, middle, r_border, seq)
+        print(l_border, middle, r_border, value)
         if seq[middle] == value:
             print('yes1', middle)
             return middle
         elif seq[middle] < value:
-            print('<',middle, seq, seq[middle])
-            l_border = middle
+            print('<', middle, seq[middle], value)
+            l_border = middle + 1
             middle = (r_border + l_border) // 2
             if seq[middle] == value:
                 print('yes2', middle)
                 return middle
             else:
-
                 one_search(value, seq, l_border, r_border)
                 print("next")
-
         elif seq[middle] > value:
-
-            print('>',middle,seq, seq[middle])
-            r_border = middle
+            print('>', middle, seq[middle], value)
+            r_border = middle - 1
             middle = (l_border + r_border) // 2
             if seq[middle] == value:
                 print('yes3', middle)
@@ -48,9 +45,8 @@ def binary_search(
                 one_search(value, seq, l_border, r_border)
                 print('next')
 
-
-    return one_search(value, seq)
+    one_search(value, seq)
 
 
 if __name__ == '__main__':
-    print(binary_search(1, [1,2,3,6,8,10,12]))
+    print(binary_search(12, [1, 2, 3, 6, 8, 10, 12]))
