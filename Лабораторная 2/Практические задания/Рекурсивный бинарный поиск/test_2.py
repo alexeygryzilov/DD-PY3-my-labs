@@ -1,6 +1,8 @@
 from typing import Sequence
 
 
+
+
 def binary_search(
         value: int, seq: Sequence[int],
         left_border: int = 0, right_border: int = None) -> int:
@@ -34,5 +36,6 @@ def binary_search(
 
 
 if __name__ == '__main__':
-    print(binary_search(3, [1, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5]))
+    print(binary_search(4, [1, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5]))
+    assert binary_search(3, [1, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5]) == 2
 
