@@ -21,26 +21,18 @@ def binary_search(
         raise ValueError("Элемента нет")
     middle: int = (left_border + right_border) // 2
     if seq[middle] == value:
-        print(left_border, middle)
         while seq[left_border] != value:
             left_border += 1
         return left_border
 
     elif seq[middle] < value:
         left_border = middle + 1
-        if seq[middle] == value:
-            return middle
-
-        else:
-            return binary_search(value, seq, left_border, right_border)
+        return binary_search(value, seq, left_border, right_border)
     elif seq[middle] > value:
         right_border: int = middle - 1
-        if seq[middle] == value:
-            return middle
-        else:
-            return binary_search(value, seq, left_border, right_border)
+        return binary_search(value, seq, left_border, right_border)
 
 
 if __name__ == '__main__':
-    print(binary_search(4, [1, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5]))
+    print(binary_search(3, [1, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5]))
 
