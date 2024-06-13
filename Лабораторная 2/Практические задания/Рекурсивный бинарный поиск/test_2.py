@@ -1,8 +1,6 @@
 from typing import Sequence
 
 
-
-
 def binary_search(
         value: int, seq: Sequence[int],
         left_border: int = 0, right_border: int = None) -> int:
@@ -17,25 +15,42 @@ def binary_search(
     :raise: ValueError если элемента нет в массиве
     :return: Индекс элемента в массиве
     """
-    if right_border is None:
-        right_border = len(seq) - 1
-    if left_border > right_border:
-        raise ValueError("Элемента нет")
-    middle: int = (left_border + right_border) // 2
-    if seq[middle] == value:
-        while seq[left_border] != value:
-            left_border += 1
-        return left_border
 
+    right_border = len(seq)
+    middle: int = (left_border + right_border) // 2
+
+    print('start', left_border, middle, right_border)
+    print('---')
+    if seq[middle] == value:
+        print('yes1')
+        return middle
     elif seq[middle] < value:
+        print('+')
         left_border = middle + 1
-        return binary_search(value, seq, left_border, right_border)
+        middle: int = (left_border + right_border) // 2
+        print('+', left_border, middle, right_border)
+
+        if seq[middle] == value:
+            print('yes2')
+            return middle
+        else:
+            print('++')
+            binary_search(value, seq, left_border, right_border)
+            print('+', left_border, middle, right_border)
     elif seq[middle] > value:
+        print('-')
         right_border: int = middle - 1
-        return binary_search(value, seq, left_border, right_border)
+        middle = (left_border + right_border) // 2
+        print('-', left_border, middle, right_border)
+
+        if seq[middle] == value:
+            print('yes3')
+            return middle
+        else:
+            print('--')
+            binary_search(value, seq, left_border, right_border)
+            print('-', left_border, middle, right_border)
 
 
 if __name__ == '__main__':
-    print(binary_search(4, [1, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5]))
-    assert binary_search(3, [1, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5]) == 2
-
+    print(binary_search(1, [1, 2, 3, 4, 5]))
