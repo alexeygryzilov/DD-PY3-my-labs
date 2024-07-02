@@ -16,4 +16,4 @@ def generate(num_rows: int) -> List[List[int]]:
     return list_
 
 if __name__ == '__main__':
-    print(generate(8))
+    print(generate(6))

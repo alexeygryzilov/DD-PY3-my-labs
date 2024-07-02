@@ -22,3 +22,4 @@ def sort(container: List[int]) -> List[int]:
 
 assert sort([]) == []
 assert sort([1, 1, 1]) == [1, 1, 1]
+assert sort([9, 7, 6, 5, 4, 3, 2, 1]) == [1, 2, 3, 4, 5, 6, 7,  9]
